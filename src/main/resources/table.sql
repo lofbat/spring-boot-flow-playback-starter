@@ -1,4 +1,4 @@
-CREATE TABLE `invoke_item_detail` (
+CREATE TABLE `invoke_detail` (
   `id` BIGINT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主键',
   `invoke_id` BIGINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '调用id',
   `class_name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '全限定类名',
@@ -10,19 +10,20 @@ CREATE TABLE `invoke_item_detail` (
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
-  KEY `idx_invoke_id` (`invoke_id`)
+  KEY `idx_invokeid` (`invoke_id`)
 ) ENGINE=InnoDB CHARSET=utf8mb4 COMMENT='调用详情表'
 
-CREATE TABLE `invoke_biz_relation` (
+CREATE TABLE `invoke_info` (
   `id` BIGINT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主键',
   `app` VARCHAR(32) NOT NULL DEFAULT '' COMMENT '应用名',
-  `unique_id` VARCHAR(32) UNSIGNED NOT NULL DEFAULT '0' COMMENT '调用id',
+  `unique_id` BIGINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '调用id',
   `invoke_id` BIGINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '调用方法id',
   `serial_no` TINYINT NOT NULL DEFAULT 0 COMMENT '调用顺序记录 ，从0开始',
   `type` TINYINT NOT NULL DEFAULT 0 COMMENT '状态，枚举值：(0,调用),(1,依赖)',
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '状态，枚举值：(0,有效),(1,删除)',
+  `ext` VARCHAR(32) NOT NULL DEFAULT '' COMMENT '拓展字段',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
-  KEY `idx_unique_id` (`unique_id`)
+  KEY `idx_app_uniquid` (`app``unique_id`)
 ) ENGINE=InnoDB CHARSET=utf8mb4 COMMENT='调用关系表'

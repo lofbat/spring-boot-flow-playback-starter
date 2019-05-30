@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.youzan.owl.oc.dal.dao.ebiz.BuyerInfoDao">
+
+    <sql id="tableName">
+        invoke_detail
+    </sql>
+
+    <sql id="fields">
+        id,
+        invoke_id,
+        class_name,
+        bean_name,
+        method,
+        args,
+        return_value,
+        status,
+        created_at,
+        updated_at
+    </sql>
+
+    <sql id="setupx">
+        <set>
+            <trim suffixOverrides=",">
+                <if test="invokeId != null">
+                    invoke_id=#{invokeId},
+                </if>
+                <if test="className != null">
+                    class_name=#{className},
+                </if>
+                <if test="beanName != null">
+                    bean_name=#{beanName},
+                </if>
+                <if test="method">
+                    method=#{method},
+                </if>
+                <if test="args != null">
+                    args=#{args},
+                </if>
+                <if test="returnValue != null">
+                    return_value=#{returnValue},
+                </if>
+                <if test="status != null">
+                    status=#{status},
+                </if>
+                <if test="createdAt != null">
+                    created_at=#{createdAt},
+                </if>
+                <if test="updatedAt != null">
+                    updated_at=#{updatedAt}
+                </if>
+            </trim>
+        </set>
+    </sql>
+
+</mapper>
