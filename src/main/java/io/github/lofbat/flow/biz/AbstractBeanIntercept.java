@@ -4,14 +4,13 @@ import io.github.lofbat.flow.dao.InvokeDetailDAO;
 import io.github.lofbat.flow.dao.InvokeInfoDAO;
 import io.github.lofbat.flow.model.BeanInterceptBO;
 import io.github.lofbat.flow.model.BeanInterceptBOConverter;
-import io.github.lofbat.flow.utils.MD5Helper;
-import io.github.lofbat.flow.utils.SerializeHelper;
+import io.github.lofbat.flow.utils.MD5Util;
+import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Created by geqi on 2019/5/29.
@@ -30,7 +29,7 @@ abstract class AbstractBeanIntercept {
         Signature signature = joinPoint.getSignature();
         Object[] args = joinPoint.getArgs();
 
-        String uniqueNo = MD5Helper.md5(signature.getName()+args.toString());
+        String uniqueNo = MD5Util.md5(signature.getName()+args.toString());
         String classType = joinPoint.getTarget().getClass().getName();
         Class<?> clazz = null;
         try {
@@ -48,7 +47,7 @@ abstract class AbstractBeanIntercept {
                 .invokeNo(uniqueNo)
                 .className(clazzName)
                 .beanName(clazzName)
-                .args(SerializeHelper.serializeArray(args))
+                .args(SerializeUtil.serializeArray(args))
                 .returnValue("")
                 .serialNo(0)
                 .method(signature.getName())

@@ -3,7 +3,6 @@ package io.github.lofbat.flow.utils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -13,7 +12,7 @@ import java.util.*;
 /**
  * Created by geqi on 2019/5/30.
  */
-public class SerializeHelper {
+public class SerializeUtil {
 
     private static Gson gson = new Gson();
 
@@ -35,21 +34,6 @@ public class SerializeHelper {
         }
 
         return JSONArray.toJSONString(objectPairs);
-//        StringBuilder stringBuilder = new StringBuilder();
-//        stringBuilder.append("{" +
-//                "\"sites\": [");
-//        for(Object object :objects){
-//            stringBuilder.append("{ \"name\":\"");
-//            stringBuilder.append(object.getClass().getName());
-//            stringBuilder.append("\",\"object\":\"");
-//            stringBuilder.append(serialize(object));
-//            stringBuilder.append("},");
-//        }
-//        stringBuilder.deleteCharAt(stringBuilder.length()-1);
-//        stringBuilder.append("]" +
-//                "}");
-
-//        return stringBuilder.toString();
     }
 
     public static Object[] deserializeArray(String json){

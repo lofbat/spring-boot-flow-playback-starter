@@ -2,7 +2,7 @@ package io.github.lofbat.flow.biz;
 
 import io.github.lofbat.flow.model.BeanInterceptBO;
 import io.github.lofbat.flow.model.BeanInterceptBOConverter;
-import io.github.lofbat.flow.utils.SerializeHelper;
+import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.springframework.stereotype.Component;
@@ -38,7 +38,7 @@ public class EntryBeanIntercept extends AbstractBeanIntercept {
 
         BeanInterceptBO beanInterceptBO = BeanInterceptBO.builder()
                 .invokeNo(invokeNo)
-                .returnValue(SerializeHelper.serialize(object))
+                .returnValue(SerializeUtil.serialize(object))
                 .build();
 
         invokeDetailDAO.update(BeanInterceptBOConverter.toInvokeDetailDO(beanInterceptBO));

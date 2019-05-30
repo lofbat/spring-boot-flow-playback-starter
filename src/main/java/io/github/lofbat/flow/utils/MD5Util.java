@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by geqi on 2019/5/30.
  */
-public class MD5Helper {
+public class MD5Util {
 
     public static String md5(String plainText) {
         //定义一个字节数组
