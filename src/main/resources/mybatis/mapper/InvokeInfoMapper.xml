@@ -11,14 +11,48 @@
     <sql id="fields">
         id,
         app,
-        unique_id,
-        invoke_id,
+        unique_no,
+        invoke_no,
         serial_no,
         type,
         status,
         ext,
         created_at,
         updated_at
+    </sql>
+
+    <sql id="setupx">
+        <set>
+            <trim suffixOverrides=",">
+                <if test="app != null">
+                    app=#{app},
+                </if>
+                <if test="uniqueNo != null">
+                    unique_no=#{uniqueNo},
+                </if>
+                <if test="invokeNo != null">
+                    invoke_no=#{invokeNo},
+                </if>
+                <if test="serialNo != null">
+                    serial_no=#{serialNo},
+                </if>
+                <if test="type != null">
+                    type=#{type},
+                </if>
+                <if test="status != null">
+                    status=#{status},
+                </if>
+                <if test="ext != null">
+                    ext=#{ext},
+                </if>
+                <if test="createdAt != null">
+                    created_at=#{createdAt},
+                </if>
+                <if test="updatedAt != null">
+                    updated_at=#{updatedAt}
+                </if>
+            </trim>
+        </set>
     </sql>
 
 </mapper>

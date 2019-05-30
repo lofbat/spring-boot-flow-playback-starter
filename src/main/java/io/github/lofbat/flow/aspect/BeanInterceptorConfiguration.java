@@ -51,7 +51,9 @@ public class BeanInterceptorConfiguration {
     @Around("executionDependencyService()")
     public void arroundDependenceBean(ProceedingJoinPoint pjp){
         try {
-            dependenceBeanIntercept.record(pjp);
+            String invokeNo = dependenceBeanIntercept.beginRecord(pjp);
+            Object object = pjp.proceed();
+            dependenceBeanIntercept.endRecord(invokeNo,object);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

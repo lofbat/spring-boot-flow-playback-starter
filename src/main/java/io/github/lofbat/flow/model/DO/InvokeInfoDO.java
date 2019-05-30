@@ -1,15 +1,22 @@
 package io.github.lofbat.flow.model.DO;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
+
 /**
  * Created by geqi on 2019/5/30.
  */
+@Data
+@Builder
+@ToString(callSuper = true)
 public class InvokeInfoDO extends DataObject{
 
     private String app;
 
-    private Integer uniqueId;
+    private String uniqueNo;
 
-    private Integer invokeId;
+    private String invokeNo;
 
     private Integer serialNo;
 

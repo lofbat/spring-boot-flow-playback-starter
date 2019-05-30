@@ -1,3 +1,7 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-io.github.lofbat.flow.aspect.BeanInterceptorConfiguration
+io.github.lofbat.flow.aspect.BeanInterceptorConfiguration,\
+io.github.lofbat.flow.dao.InvokeDetailDAO,\
+io.github.lofbat.flow.dao.InvokeInfoDAO,\
+io.github.lofbat.flow.biz.EntryBeanIntercept,\
+io.github.lofbat.flow.biz.DependenceBeanIntercept

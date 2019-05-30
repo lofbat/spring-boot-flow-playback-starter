@@ -10,7 +10,7 @@
 
     <sql id="fields">
         id,
-        invoke_id,
+        invoke_no,
         class_name,
         bean_name,
         method,
@@ -24,8 +24,8 @@
     <sql id="setupx">
         <set>
             <trim suffixOverrides=",">
-                <if test="invokeId != null">
-                    invoke_id=#{invokeId},
+                <if test="invokeNo != null">
+                    invoke_no=#{invokeNo},
                 </if>
                 <if test="className != null">
                     class_name=#{className},

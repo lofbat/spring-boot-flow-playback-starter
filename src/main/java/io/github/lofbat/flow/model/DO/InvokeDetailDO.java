@@ -1,5 +1,6 @@
 package io.github.lofbat.flow.model.DO;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
@@ -7,10 +8,11 @@ import lombok.ToString;
  * Created by geqi on 2019/5/30.
  */
 @Data
+@Builder
 @ToString(callSuper = true)
 public class InvokeDetailDO extends DataObject {
 
-    private Integer invokeId;
+    private String invokeNo;
 
     private String className;
 
