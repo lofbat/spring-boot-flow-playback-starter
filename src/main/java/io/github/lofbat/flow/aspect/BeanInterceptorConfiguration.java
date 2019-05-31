@@ -39,23 +39,12 @@ public class BeanInterceptorConfiguration {
     @Around("executionEntryService()")
     public void arroundEntryBean(ProceedingJoinPoint pjp){
 
-        try{
-            entryBeanIntercept.beginRecord(pjp);
-            Object object = pjp.proceed();
-            entryBeanIntercept.endRecord(object);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
+        entryBeanIntercept.record(pjp);
     }
 
     @Around("executionDependencyService()")
     public void arroundDependenceBean(ProceedingJoinPoint pjp){
-        try {
-            String invokeNo = dependenceBeanIntercept.beginRecord(pjp);
-            Object object = pjp.proceed();
-            dependenceBeanIntercept.endRecord(invokeNo,object);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
+
+        dependenceBeanIntercept.record(pjp);
     }
 }

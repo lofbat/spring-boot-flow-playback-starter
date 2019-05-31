@@ -5,6 +5,7 @@ import io.github.lofbat.flow.model.BeanInterceptBOConverter;
 import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
@@ -15,6 +16,19 @@ import java.util.Objects;
 @Component
 @Slf4j
 public class EntryBeanIntercept extends AbstractBeanIntercept {
+
+    @Override
+    public void record(ProceedingJoinPoint pjp) {
+
+        beginRecord(pjp);
+        Object object = null;
+        try {
+            object = pjp.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        endRecord(object);
+    }
 
     public void beginRecord(JoinPoint joinPoint){
 

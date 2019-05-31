@@ -8,7 +8,9 @@ import io.github.lofbat.flow.utils.MD5Util;
 import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,6 +26,8 @@ abstract class AbstractBeanIntercept {
 
     @Autowired
     protected InvokeInfoDAO invokeInfoDAO;
+
+    abstract void record(ProceedingJoinPoint pjp);
 
     protected BeanInterceptBO buildBeanInterceptBO(JoinPoint joinPoint){
         Signature signature = joinPoint.getSignature();
