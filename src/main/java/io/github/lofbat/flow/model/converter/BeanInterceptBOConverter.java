@@ -1,7 +1,8 @@
-package io.github.lofbat.flow.model;
+package io.github.lofbat.flow.model.converter;
 
-import io.github.lofbat.flow.model.DO.InvokeDetailDO;
-import io.github.lofbat.flow.model.DO.InvokeInfoDO;
+import io.github.lofbat.flow.model.bo.BeanInterceptBO;
+import io.github.lofbat.flow.model.dataobject.InvokeDetailDO;
+import io.github.lofbat.flow.model.dataobject.InvokeInfoDO;
 
 /**
  * Created by geqi on 2019/5/30.

@@ -1,4 +1,4 @@
-package io.github.lofbat.flow.model.DO;
+package io.github.lofbat.flow.model.dataobject;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package io.github.lofbat.flow.dao;
 
-import io.github.lofbat.flow.model.DO.InvokeDetailDO;
+import io.github.lofbat.flow.model.dataobject.InvokeDetailDO;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -1,7 +1,7 @@
 package io.github.lofbat.flow.aspect;
 
-import io.github.lofbat.flow.biz.DependenceBeanIntercept;
-import io.github.lofbat.flow.biz.EntryBeanIntercept;
+import io.github.lofbat.flow.biz.intercept.DependenceBeanIntercept;
+import io.github.lofbat.flow.biz.intercept.EntryBeanIntercept;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

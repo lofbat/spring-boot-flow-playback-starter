@@ -1,4 +1,4 @@
-package io.github.lofbat.flow.model.DO;
+package io.github.lofbat.flow.model.dataobject;
 
 import java.io.Serializable;
 import java.util.Date;

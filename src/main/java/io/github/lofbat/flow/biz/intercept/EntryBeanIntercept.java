@@ -1,7 +1,7 @@
-package io.github.lofbat.flow.biz;
+package io.github.lofbat.flow.biz.intercept;
 
-import io.github.lofbat.flow.model.BeanInterceptBO;
-import io.github.lofbat.flow.model.BeanInterceptBOConverter;
+import io.github.lofbat.flow.model.bo.BeanInterceptBO;
+import io.github.lofbat.flow.model.converter.BeanInterceptBOConverter;
 import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

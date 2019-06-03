@@ -1,14 +1,13 @@
-package io.github.lofbat.flow.biz;
+package io.github.lofbat.flow.biz.intercept;
 
 import io.github.lofbat.flow.dao.InvokeDetailDAO;
 import io.github.lofbat.flow.dao.InvokeInfoDAO;
-import io.github.lofbat.flow.model.BeanInterceptBO;
-import io.github.lofbat.flow.model.BeanInterceptBOConverter;
+import io.github.lofbat.flow.model.bo.BeanInterceptBO;
+import io.github.lofbat.flow.model.converter.BeanInterceptBOConverter;
 import io.github.lofbat.flow.utils.MD5Util;
 import io.github.lofbat.flow.utils.SerializeUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
