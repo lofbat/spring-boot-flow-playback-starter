@@ -30,24 +30,14 @@ abstract class BeanFlowReploy implements FlowReplay{
         Object object = getBeanByClassName(className);
         Class clazz = object.getClass();
 
-        Method method;
-
-
-        method = findMethod(clazz,methodName);
-
+        Method method = findMethod(clazz,methodName);
 
         Type[] types = method.getParameterTypes();
+        Class[] classes = typeToClass(types);
 
-        Class[] classes = new Class[types.length];
-
-        for(int i = 0,l=types.length;i<l;i++){
-            classes[i]=types[0].getClass();
-        }
-
-        Object[] objects = SerializeUtil.deserializeArray(args);
+        Object[] objects = SerializeUtil.deserializeArray(args,classes);
 
         return method.invoke(object,objects);
-
     }
 
     private static Method findMethod(Class clazz,String method) throws NoSuchMethodException {
@@ -59,4 +49,15 @@ abstract class BeanFlowReploy implements FlowReplay{
         }
         throw new NoSuchMethodException(clazz.getName()+":"+method);
     }
+
+    private static Class[] typeToClass(Type... types){
+
+        Class[] classes = new Class[types.length];
+
+        for(int i = 0,l=types.length;i<l;i++){
+            classes[i]=types[0].getClass();
+        }
+        return classes;
+    }
+
 }
