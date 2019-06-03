@@ -24,6 +24,8 @@ public class BeanInterceptBO {
 
     private String args;
 
+    private Integer serializeType;
+
     private String returnValue;
 
     private Integer serialNo;

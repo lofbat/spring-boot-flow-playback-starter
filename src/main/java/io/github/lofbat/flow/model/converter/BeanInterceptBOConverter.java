@@ -26,6 +26,7 @@ public class BeanInterceptBOConverter {
 
         return InvokeDetailDO.builder()
                 .args(beanInterceptBO.getArgs())
+                .serializeType(beanInterceptBO.getSerializeType())
                 .beanName(beanInterceptBO.getBeanName())
                 .className(beanInterceptBO.getClassName())
                 .invokeNo(beanInterceptBO.getInvokeNo())

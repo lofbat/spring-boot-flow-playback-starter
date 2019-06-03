@@ -51,6 +51,7 @@ abstract class AbstractBeanIntercept {
                 .className(clazzName)
                 .beanName(clazzName)
                 .args(SerializeUtil.serializeArray(args))
+                .serializeType(0)
                 .returnValue("")
                 .serialNo(0)
                 .method(signature.getName())

@@ -5,6 +5,7 @@ CREATE TABLE `invoke_detail` (
   `bean_name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'bean名',
   `method` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '方法名',
   `args` VARCHAR(65535) NOT NULL DEFAULT '' COMMENT '方法入参',
+  `serialize_type` TINYINT NOT NULL DEFAULT 0 COMMENT '序列化类型'
   `return_value` VARCHAR(65535) NOT NULL DEFAULT '' COMMENT '返回',
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '状态，枚举值：(0,有效),(1,删除)',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

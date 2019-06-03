@@ -36,7 +36,13 @@ abstract class BeanFlowReploy implements FlowReplay{
         method = findMethod(clazz,methodName);
 
 
-        Type[] types = method.getGenericParameterTypes();
+        Type[] types = method.getParameterTypes();
+
+        Class[] classes = new Class[types.length];
+
+        for(int i = 0,l=types.length;i<l;i++){
+            classes[i]=types[0].getClass();
+        }
 
         Object[] objects = SerializeUtil.deserializeArray(args);
 

@@ -15,6 +15,7 @@
         bean_name,
         method,
         args,
+        serialize_type,
         return_value,
         status,
         created_at,
@@ -38,6 +39,9 @@
                 </if>
                 <if test="args != null">
                     args=#{args},
+                </if>
+                <if test="serializeType != null">
+                    serialize_type=#{serializeType}
                 </if>
                 <if test="returnValue != null">
                     return_value=#{returnValue},

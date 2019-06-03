@@ -44,7 +44,7 @@ public class SerializeUtil {
         while(ite.hasNext()){
             JSONObject jo = (JSONObject)ite.next();
             try {
-                list.add(deserialize(jo.getString("name"),Class.forName(jo.getString("object"))));
+                list.add(deserialize(jo.getString("className"),Class.forName(jo.getString("object"))));
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
                 list.add(null);
@@ -54,12 +54,14 @@ public class SerializeUtil {
         return list.toArray();
     }
 
+
+
     @Data
     @ToString
     @AllArgsConstructor
     private static class ObjectPair{
 
-        String name;
+        String className;
 
         String object;
     }

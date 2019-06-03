@@ -22,6 +22,8 @@ public class InvokeDetailDO extends DataObject {
 
     private String args;
 
+    private Integer serializeType;
+
     private String returnValue;
 
     private Integer status;
