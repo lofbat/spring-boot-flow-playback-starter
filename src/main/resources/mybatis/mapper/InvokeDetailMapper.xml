@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.youzan.owl.oc.dal.dao.ebiz.BuyerInfoDao">
+<mapper namespace="io.github.lofbat.flow.dao.InvokeDetailDAO">
 
     <sql id="tableName">
         invoke_detail
