@@ -11,7 +11,7 @@ public interface InvokeDetailDAO {
 
     Integer insert(InvokeDetailDO invokeDetailDO);
 
-    Integer update(InvokeDetailDO invokeDetailDO);
+    Integer updateById(InvokeDetailDO invokeDetailDO);
 
-    InvokeDetailDO getByInvokeId(Long invokeId);
+    InvokeDetailDO getByInvokeNo(Long invokeId);
 }

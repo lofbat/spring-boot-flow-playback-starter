@@ -1,0 +1,18 @@
+debug: false
+logging:
+  level.*: info
+  config: classpath:logback-spring.xml
+
+mybatis:
+    typeAliasesPackage: io.github.lofbat.flow.model.dataobject.*
+    mapperLocations: classpath:mybatis/mapper/*.xml
+    configlocation: classpath:mybatis/mybatis-config.xml
+
+datasource:
+    url: jdbc:mysql://47.99.214.80:3306/LOFBAT
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+fpb:
+  start: true

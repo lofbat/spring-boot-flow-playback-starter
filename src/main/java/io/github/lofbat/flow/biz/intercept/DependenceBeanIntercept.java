@@ -59,7 +59,7 @@ public class DependenceBeanIntercept extends AbstractBeanIntercept {
                 .returnValue(SerializeUtil.serialize(object))
                 .build();
 
-        invokeDetailDAO.update(BeanInterceptBOConverter.toInvokeDetailDO(beanInterceptBO));
+        invokeDetailDAO.updateById(BeanInterceptBOConverter.toInvokeDetailDO(beanInterceptBO));
     }
 
 }

@@ -4,15 +4,16 @@ CREATE TABLE `invoke_detail` (
   `class_name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT '全限定类名',
   `bean_name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'bean名',
   `method` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '方法名',
-  `args` VARCHAR(65535) NOT NULL DEFAULT '' COMMENT '方法入参',
-  `serialize_type` TINYINT NOT NULL DEFAULT 0 COMMENT '序列化类型'
-  `return_value` VARCHAR(65535) NOT NULL DEFAULT '' COMMENT '返回',
+  `args` VARCHAR(2048) NOT NULL DEFAULT '' COMMENT '方法入参',
+  `return_value` VARCHAR(2048) NOT NULL DEFAULT '' COMMENT '返回',
+  `serialize_type` TINYINT NOT NULL DEFAULT 0 COMMENT '序列化类型',
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '状态，枚举值：(0,有效),(1,删除)',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_invokeno` (`invoke_no`)
 ) ENGINE=InnoDB CHARSET=utf8mb4 COMMENT='调用详情表'
+
 
 CREATE TABLE `invoke_info` (
   `id` BIGINT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主键',

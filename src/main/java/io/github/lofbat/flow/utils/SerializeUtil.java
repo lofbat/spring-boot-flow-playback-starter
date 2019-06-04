@@ -78,8 +78,14 @@ public class SerializeUtil {
     @AllArgsConstructor
     public static class ObjectPair{
 
+        /**
+         * 类名/参数名
+         */
         String name;
 
+        /**
+         * 序列化后对象json串
+         */
         String object;
     }
 

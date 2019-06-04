@@ -2,6 +2,7 @@ package io.github.lofbat.flow.aspect;
 
 import io.github.lofbat.flow.biz.intercept.DependenceBeanIntercept;
 import io.github.lofbat.flow.biz.intercept.EntryBeanIntercept;
+import io.github.lofbat.flow.config.InterceptConfig;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,6 +27,9 @@ public class BeanInterceptorConfiguration {
     @Autowired
     EntryBeanIntercept entryBeanIntercept;
 
+    @Autowired
+    InterceptConfig interceptConfig;
+
     @Pointcut("@within(org.springframework.web.bind.annotation.RestController)" +
             "|| @within(org.springframework.stereotype.Controller)" +
             "|| @within(org.apache.dubbo.config.annotation.Service)")
@@ -38,13 +42,27 @@ public class BeanInterceptorConfiguration {
 
     @Around("executionEntryService()")
     public void arroundEntryBean(ProceedingJoinPoint pjp){
-
-        entryBeanIntercept.record(pjp);
+        if(interceptConfig.getStart()){
+            entryBeanIntercept.record(pjp);
+            return;
+        }
+        try {
+            pjp.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 
     @Around("executionDependencyService()")
     public void arroundDependenceBean(ProceedingJoinPoint pjp){
-
-        dependenceBeanIntercept.record(pjp);
+        if(interceptConfig.getStart()){
+            dependenceBeanIntercept.record(pjp);
+            return;
+        }
+        try {
+            pjp.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 }

@@ -13,7 +13,7 @@ public interface InvokeInfoDAO {
 
     Integer insert(InvokeInfoDO invokeInfoDO);
 
-    Integer update(InvokeInfoDO invokeInfoDO);
+    Integer updateById(InvokeInfoDO invokeInfoDO);
 
-    List<InvokeInfoDO> findByUniqueId(Long uniqueId);
+    List<InvokeInfoDO> findByUniqueNo(Long uniqueId);
 }

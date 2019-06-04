@@ -55,4 +55,32 @@
         </set>
     </sql>
 
+    <insert id="insert" parameterType="io.github.lofbat.flow.model.dataobject.InvokeInfoDO" >
+        insert into
+        <include refid="tableName" />
+        <include refid="setupx" />
+    </insert>
+
+    <update id="updateById" parameterType="io.github.lofbat.flow.model.dataobject.InvokeInfoDO" >
+        update
+        <include refid="tableName" />
+        <include refid="setupx" />
+        where
+        id = #{id}
+        and
+        status = 0
+        limit 1
+    </update>
+
+    <select id="findByUniqueNo" resultType="io.github.lofbat.flow.model.dataobject.InvokeInfoDO" >
+        select
+        <include refid="fields" />
+        from
+        <include refid="tableName" />
+        where
+        unique_no = #{uniqueNo}
+        and
+        status = 0
+    </select>
+
 </mapper>

@@ -59,4 +59,33 @@
         </set>
     </sql>
 
+    <insert id="insert" parameterType="io.github.lofbat.flow.model.dataobject.InvokeDetailDO" >
+        insert into
+        <include refid="tableName" />
+        <include refid="setupx" />
+    </insert>
+
+    <update id="updateById" parameterType="io.github.lofbat.flow.model.dataobject.InvokeDetailDO" >
+        update
+        <include refid="tableName" />
+        <include refid="setupx" />
+        where
+        id = #{id}
+        and
+        status = 0
+        limit 1
+    </update>
+
+    <select id="getByInvokeNo" resultType="io.github.lofbat.flow.model.dataobject.InvokeDetailDO" >
+        select
+        <include refid="fields" />
+        from
+        <include refid="tableName" />
+        where
+        invoke_no = #{invokeNo}
+        and
+        status = 0
+        limit 1
+    </select>
+
 </mapper>
